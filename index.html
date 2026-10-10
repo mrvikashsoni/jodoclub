@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jodo Library | Connecting Aspirants to Quiet Spaces</title>
+  <meta name="description" content="India's 1st Tech-Powered Study Space Network & Aspirant Ecosystem. Book quiet study seats like movie tickets, track rank & study hours, or scale your library with Smart B2B SaaS.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" type="image/jpeg" href="assets/jodo-logo.jpg">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo-wrap">
+        <img src="assets/jodo-logo.jpg" alt="Jodo Club Logo" class="brand-logo-img">
+        <div class="brand-text">
+          <div class="brand-title"><span class="blue">Jodo</span> <span class="green">Club</span></div>
+          <div class="brand-tagline">Jodo Library Ecosystem</div>
+        </div>
+      </a>
+
+      <!-- Persona Switcher -->
+      <div class="persona-switcher" role="tablist">
+        <button class="persona-btn active" data-persona="all">⚡ Overview</button>
+        <button class="persona-btn" data-persona="student">👨‍🎓 For Aspirants</button>
+        <button class="persona-btn" data-persona="owner">🏢 For Owners</button>
+        <button class="persona-btn vc-tab" data-persona="vc">💼 VC & Investor Thesis</button>
+      </div>
+
+      <!-- Quick Action CTA -->
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-sm" data-open-modal="owner-lms">Free Owner LMS</button>
+        <button class="btn btn-primary btn-sm" data-open-modal="early-access">Book a Seat</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="badge badge-teal">
+            <span class="pulse-dot"></span>
+            India's 1st Tech-Powered Study Space Network
+          </div>
+
+          <h1 class="hero-title">
+            Connecting Aspirants to <span class="gradient-text">Quiet Spaces.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            India's premier unified network for quiet study spaces. Book your verified quiet study desk with precision floor selection, benchmark daily study hours against state toppers, monetize vacant days, and empower library owners with unmanned IoT SaaS.
+          </p>
+
+          <div class="hero-cta-group">
+            <button class="btn btn-primary btn-lg" data-open-modal="early-access">
+              <span>Find Study Seat Near You</span>
+              <span>→</span>
+            </button>
+            <button class="btn btn-secondary btn-lg" data-open-modal="owner-lms">
+              <span>List Your Library (Free SaaS)</span>
+            </button>
+            <a href="#vc-investment-thesis" class="hero-vc-callout">
+              <span>📊 <strong>VC Thesis</strong>: ₹4,800 Cr TAM & Unit Economics</span>
+              <span>↓</span>
+            </a>
+          </div>
+
+          <!-- Hero Metrics Bar -->
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <span class="metric-value">15M+</span>
+              <span class="metric-label">Target Exam Aspirants</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">50,000+</span>
+              <span class="metric-label">Unorganized Reading Rooms</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">4.80L+</span>
+              <span class="metric-label">BPSC Density / Exam Cycle</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">100% Free</span>
+              <span class="metric-label">Supply-Side B2B LMS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Banner & Live Preview -->
+        <div class="hero-visual">
+          <div class="hero-banner-preview">
+            <img src="assets/jodo-banner.png" alt="Jodo Library Connected Study Spaces" class="hero-banner-img">
+            
+            <div class="floating-glass-card top-left">
+              <div class="fc-title">Live Occupancy Status</div>
+              <div class="fc-body">
+                <span style="color:#10b981;">●</span> 84% Filled • 4 Window Seats Left
+              </div>
+            </div>
+
+            <div class="floating-glass-card bottom-right">
+              <div class="fc-title">Discipline Gamification</div>
+              <div class="fc-body">
+                <span>🏆 25 Days Streak = 25% Off</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem & Target Audience Section -->
+  <section class="section section-darker" id="target-audience-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="badge badge-blue">🎯 Target Market Breakdown</span>
+        </div>
+        <h2 class="section-title">Whom is Jodo Built For? Why Is It a Burning Need?</h2>
+        <p class="section-desc">
+          In high-stakes coaching capitals like Patna, Kota, Prayagraj, and Mukherjee Nagar, private study libraries are not a luxury—they are a <strong>biological survival necessity</strong> for deep focus.
+        </p>
+      </div>
+
+      <div class="personas-grid">
+        <!-- Persona 1: Competitive Aspirants -->
+        <div class="persona-card highlight">
+          <div class="persona-icon-wrap">👨‍🎓</div>
+          <h3 class="persona-title">1. Competitive Exam Aspirants</h3>
+          <div class="persona-tag">Primary Market (BPSC, UPSC, SSC, Railways, Banking, NEET)</div>
+          
+          <div class="persona-pain-points">
+            <div class="pain-title">The Brutal Reality:</div>
+            <ul class="pain-list">
+              <li><strong>Cramped 5x10 ft rooms:</strong> 3-4 roommates sharing beds in suffocating coaching corridors (Musallahpur Haat, Kankarbagh).</li>
+              <li><strong>Rigid non-refundable fees:</strong> Full month paid in advance even if away for exams or home visits.</li>
+              <li><strong>Study isolation:</strong> Zero visibility into peer hours, no live benchmarking, expensive isolated test series.</li>
+            </ul>
+          </div>
+
+          <div class="persona-solution">
+            <div class="sol-title">Jodo's Unfair Advantage:</div>
+            <ul class="sol-list">
+              <li>Book exact seat (AC/Window/Socket) shift-by-shift.</li>
+              <li><strong>Sell Seat on Absent:</strong> Earn cashback when away.</li>
+              <li>Attendance-linked fee discounts & city leaderboards.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Persona 2: Library Owners -->
+        <div class="persona-card">
+          <div class="persona-icon-wrap">🏢</div>
+          <h3 class="persona-title">2. Private Library Owners</h3>
+          <div class="persona-tag">Supply Side (Over 50,000 Reading Rooms in India)</div>
+          
+          <div class="persona-pain-points">
+            <div class="pain-title">Daily Headaches:</div>
+            <ul class="pain-list">
+              <li><strong>Manual paper registers:</strong> High revenue leakage (~₹5,000/mo) and awkward fee collection follow-ups.</li>
+              <li><strong>Severe Off-Peak Vacancies:</strong> Afternoon (12-4 PM) & Night shifts (11 PM-6 AM) sit 60% empty.</li>
+              <li><strong>Zero automation:</strong> Tied to the front desk 14 hours a day with no multi-branch visibility.</li>
+            </ul>
+          </div>
+
+          <div class="persona-solution">
+            <div class="sol-title">Jodo's Unfair Advantage:</div>
+            <ul class="sol-list">
+              <li><strong>100% Free Lifetime B2B LMS:</strong> Digital floorplan & seats.</li>
+              <li>Auto WhatsApp/SMS fee alerts 2-3 days prior.</li>
+              <li>Unmanned IoT QR gate entry & dynamic pricing engine.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Persona 3: Remote Pros & College Students -->
+        <div class="persona-card">
+          <div class="persona-icon-wrap">💻</div>
+          <h3 class="persona-title">3. Freelancers & Semester Students</h3>
+          <div class="persona-tag">Tertiary & On-Demand Market (WFH & University Students)</div>
+          
+          <div class="persona-pain-points">
+            <div class="pain-title">Daily Headaches:</div>
+            <ul class="pain-list">
+              <li><strong>No quiet workspace:</strong> Home distractions, frequent power cuts, fluctuating mobile internet.</li>
+              <li><strong>Overpriced co-working spaces:</strong> Metro co-working hubs charge ₹5,000+/mo, unavailable in Tier-2/3 cities.</li>
+              <li><strong>Inflexible passes:</strong> Just need 3 hours of high-speed Wi-Fi and air conditioning for an urgent deadline.</li>
+            </ul>
+          </div>
+
+          <div class="persona-solution">
+            <div class="sol-title">Jodo's Unfair Advantage:</div>
+            <ul class="sol-list">
+              <li><strong>Micro-Renting (Pay-Per-Hour):</strong> Scan QR on desk & pay.</li>
+              <li>Verified 100 Mbps Wi-Fi & 100% generator power backup.</li>
+              <li>Instant digital day pass without long-term commitments.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Demo Section: Seat Booking & Sell Seat Simulator -->
+  <section class="section" id="interactive-demo-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="badge badge-teal">🕹️ Interactive Product Experience</span>
+        </div>
+        <h2 class="section-title">Experience the Jodo Seat Engine Live</h2>
+        <p class="section-desc">
+          Test the movie-ticket style booking interface, toggle shifts, apply your attendance discount, and simulate our revolutionary <em>"Sell My Seat"</em> feature.
+        </p>
+      </div>
+
+      <div class="interactive-showcase">
+        <div class="demo-header-bar">
+          <div style="display:flex; align-items:center; gap:0.75rem;">
+            <span class="badge badge-blue">Patliputra Study Hub • Boring Road, Patna</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Verified AC • 100 Mbps Wi-Fi • Generator Backup</span>
+          </div>
+          <div class="demo-tabs">
+            <button class="demo-tab-btn active">Live Seat Layout</button>
+            <button class="demo-tab-btn" data-open-modal="early-access">Open in App View</button>
+          </div>
+        </div>
+
+        <div class="demo-body-grid">
+          <!-- Left: Seat Map View -->
+          <div class="seat-map-wrapper">
+            <div class="map-controls-row">
+              <div class="shift-picker">
+                <span style="font-size:0.78rem; font-weight:700; color:var(--text-dim); text-transform:uppercase;">Select Shift:</span>
+                <button type="button" class="shift-chip selected" data-shift="morning">Morning (6 AM - 12 PM)</button>
+                <button type="button" class="shift-chip" data-shift="afternoon">Afternoon (12 PM - 6 PM)</button>
+                <button type="button" class="shift-chip" data-shift="evening">Evening (6 PM - 11 PM)</button>
+                <button type="button" class="shift-chip" data-shift="night">Night Owl (11 PM - 6 AM)</button>
+                <button type="button" class="shift-chip" data-shift="fullday">24x7 Full Day</button>
+              </div>
+
+              <div class="seat-legend">
+                <div class="legend-item"><div class="legend-box available"></div> Available</div>
+                <div class="legend-item"><div class="legend-box selected"></div> Your Choice</div>
+                <div class="legend-item"><div class="legend-box occupied"></div> Occupied</div>
+                <div class="legend-item"><div class="legend-box vacant-sell"></div> Resale Slot</div>
+              </div>
+            </div>
+
+            <!-- Floorplan Grid -->
+            <div class="floor-stage">
+              <div class="library-front-label">
+                <span>🚪 Entry Gate (QR Scanner)</span>
+                <span>•</span>
+                <span>❄️ AC Vents Zone (Top)</span>
+                <span>•</span>
+                <span>🔇 Silent Study Corridor</span>
+              </div>
+
+              <div class="seats-grid" id="interactive-seats-grid">
+                <!-- Dynamically populated via assets/js/main.js -->
+              </div>
+            </div>
+
+            <!-- Absenteeism Resale Callout -->
+            <div class="sell-seat-banner">
+              <span>💡</span>
+              <div style="flex:1;">
+                <strong>Going Home or Travelling for Exams?</strong> Don't pay for empty days! List your booked seat on Jodo and get cashback when someone rents it.
+              </div>
+              <button class="btn btn-secondary btn-sm" id="btn-simulate-resale">Test Resale</button>
+            </div>
+            <div id="resale-result-box" style="display:none; padding:0.85rem; background:rgba(16,185,129,0.1); border:1px solid #10b981; border-radius:8px; font-size:0.85rem;"></div>
+          </div>
+
+          <!-- Right: Dynamic Checkout & Discount Engine -->
+          <div class="booking-checkout-panel">
+            <div>
+              <div class="panel-header">
+                <h3>Booking Summary</h3>
+                <p>Transparent pricing, zero hidden charges</p>
+              </div>
+
+              <div class="summary-card">
+                <div class="summary-row">
+                  <span class="label">Selected Seat:</span>
+                  <span class="value" id="summary-seat-name">Seat A4 (Window View)</span>
+                </div>
+                <div class="summary-row">
+                  <span class="label">Shift Timing:</span>
+                  <span class="value" id="summary-shift-name">Morning (6 AM - 12 PM)</span>
+                </div>
+                <div class="summary-row">
+                  <span class="label">Standard Base Fee:</span>
+                  <span class="value" id="summary-base-price">₹690</span>
+                </div>
+                <div class="summary-row discount">
+                  <span class="label">Discipline Discount:</span>
+                  <span class="value" id="summary-discount-val">-₹138 (20%)</span>
+                </div>
+                <div class="summary-row total">
+                  <span class="label">Payable Amount:</span>
+                  <span class="value" id="summary-total-price">₹552/mo</span>
+                </div>
+              </div>
+
+              <!-- Interactive Attendance Slider -->
+              <div class="attendance-discount-box">
+                <div class="ad-header">
+                  <span>📅 Attendance-Based Discount</span>
+                  <span id="attendance-discount-pct">20% Discount Applied</span>
+                </div>
+                <div class="ad-slider-wrap">
+                  <input type="range" min="0" max="30" value="22" class="ad-slider" id="attendance-slider">
+                </div>
+                <div class="ad-feedback">
+                  <span>Tracked via QR: <strong id="attendance-days-val" style="color:#fff;">22 Days</strong></span>
+                  <span>More Days = Cheaper Fees!</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <button class="btn btn-primary" style="width:100%;" data-open-modal="early-access">
+                <span>Reserve This Seat Instantly</span>
+                <span>→</span>
+              </button>
+              <div style="font-size:0.75rem; text-align:center; color:var(--text-dim); margin-top:0.75rem;">
+                🔒 Instant Digital ID Card & QR Entry Pass generated upon booking.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete Features Breakdown: Aspirants vs Owners -->
+  <section class="section section-darker" id="student-features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="badge badge-blue">📱 Dual-Engine Feature Architecture</span>
+        </div>
+        <h2 class="section-title">Built for Students. Perfected for Library Owners.</h2>
+        <p class="section-desc">
+          A full-stack ecosystem replacing friction with speed, transparency, and high academic discipline.
+        </p>
+      </div>
+
+      <div class="features-matrix-grid">
+        <!-- Student Features Column -->
+        <div class="features-column" id="student-features-col">
+          <div class="col-badge">
+            <span class="badge badge-blue">👨‍🎓 Features for Students (Members)</span>
+          </div>
+          <h3 class="col-title">The Aspirant Super-App</h3>
+          <p class="col-desc">Everything an aspirant needs from seat booking to exam rankings and living cost reductions.</p>
+
+          <div class="feature-cards-list">
+            <div class="feature-item-card">
+              <div class="fic-icon">🪑</div>
+              <div class="fic-content">
+                <h4>Live Seat Availability & Self-Booking</h4>
+                <p>Check live vacancies by shift. Pick your exact corner desk, window seat, or charging socket with interactive floor layout. Switch seats seamlessly when another becomes vacant.</p>
+                <span class="fic-tag">Interactive Seat Engine</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card">
+              <div class="fic-icon">💸</div>
+              <div class="fic-content">
+                <h4>Sell Seat on Absent & Earn Cashback</h4>
+                <p>Going home for festivals or out of town for an exam? Don't let your paid seat rot. Release your slot for micro-rentals and earn money back.</p>
+                <span class="fic-tag">Zero Wasted Money</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card">
+              <div class="fic-icon">📲</div>
+              <div class="fic-content">
+                <h4>QR Self-Attendance & Digital ID Card</h4>
+                <p>Scan the desk QR code to mark In/Out time automatically. In-app digital student ID card eliminates the hassle of physical lost cards.</p>
+                <span class="fic-tag">Paperless Automation</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card">
+              <div class="fic-icon">🎯</div>
+              <div class="fic-content">
+                <h4>Attendance-Based Monthly Discounts</h4>
+                <p>Disciplined study pays off! Maintain regular monthly attendance and unlock automated renewal discounts directly sponsored by the library.</p>
+                <span class="fic-tag">Discipline Rewards</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card">
+              <div class="fic-icon">🔔</div>
+              <div class="fic-content">
+                <h4>Auto Fee Alerts & 1-Click UPI Renewal</h4>
+                <p>Receive WhatsApp and app reminders 2-3 days before expiry. Renew instantly via UPI or card without standing in line or awkward cash reminders.</p>
+                <span class="fic-tag">Frictionless Payments</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card">
+              <div class="fic-icon">📢</div>
+              <div class="fic-content">
+                <h4>Instant Complaints & Infrastructure Feedback</h4>
+                <p>AC not cooling? Wi-Fi running slow? Washroom hygiene issue? Raise a direct 1-tap ticket to the owner and track resolution status live.</p>
+                <span class="fic-tag">Accountability Matrix</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card">
+              <div class="fic-icon">📚</div>
+              <div class="fic-content">
+                <h4>Crowdsourced Free Test Series & Study Groups</h4>
+                <p>Student-generated and verified mock tests shared live for free. Connect with peers preparing for the exact same target exam.</p>
+                <span class="fic-tag">Democratized EdTech</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card">
+              <div class="fic-icon">🏡</div>
+              <div class="fic-content">
+                <h4>Local Living Hub (Cheapest Verified PGs & Mess)</h4>
+                <p>Stop overpaying for basic living. Discover verified coaching corridor PGs, tiffin services, gyms, and bookstores with student-exclusive pricing.</p>
+                <span class="fic-tag">Living Budget Protector</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Library Owner Features Column -->
+        <div class="features-column" id="owner-features">
+          <div class="col-badge">
+            <span class="badge badge-teal">🏢 Features for Library Owners</span>
+          </div>
+          <h3 class="col-title">The Unmanned Library SaaS</h3>
+          <p class="col-desc">Turn paper registers into a smart, automated, multi-branch revenue engine with 100% free software.</p>
+
+          <div class="feature-cards-list">
+            <div class="feature-item-card owner-style">
+              <div class="fic-icon">📊</div>
+              <div class="fic-content">
+                <h4>Advanced Seat & Multi-Shift Dashboard</h4>
+                <p>Visual floorplan showing occupied and vacant seats in real-time. Manage Morning, Afternoon, Evening, Night Owl, and 24x7 shifts without double-booking.</p>
+                <span class="fic-tag">Zero Seat Clashes</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card owner-style">
+              <div class="fic-icon">💬</div>
+              <div class="fic-content">
+                <h4>Automated WhatsApp & SMS Due Alerts</h4>
+                <p>Automated reminders sent to students 2-3 days prior to expiration. Ends uncomfortable face-to-face fee recovery conversations permanently.</p>
+                <span class="fic-tag">100% On-Time Fees</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card owner-style">
+              <div class="fic-icon">💳</div>
+              <div class="fic-content">
+                <h4>Automated Fee & Revenue Tracking Ledger</h4>
+                <p>Reconcile cash collections and direct UPI payments in one dashboard. Generates daily, monthly, and annual financial statements with tax ledgers.</p>
+                <span class="fic-tag">₹5,000/mo Leakage Saved</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card owner-style">
+              <div class="fic-icon">🚪</div>
+              <div class="fic-content">
+                <h4>Smart IoT Gate Access & QR Attendance</h4>
+                <p>Desk QR codes and entry turnstiles permit only active paid subscribers. Turn on unmanned branch operations without needing front-desk clerks.</p>
+                <span class="fic-tag">Unmanned Operations</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card owner-style">
+              <div class="fic-icon">🏷️</div>
+              <div class="fic-content">
+                <h4>Dynamic Pricing & Discount Management</h4>
+                <p>Run new user discounts, festival promos, and attendance-based rewards. Automatically lower rates for 12 PM-4 PM slots to maximize 100% occupancy.</p>
+                <span class="fic-tag">Max Yield Management</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card owner-style">
+              <div class="fic-icon">🌐</div>
+              <div class="fic-content">
+                <h4>Multi-Branch Centralized Control</h4>
+                <p>Running 2, 5, or 10 branches across Patna, Gaya, or Muzaffarpur? Monitor live occupancy, collections, and staff reports from a single screen.</p>
+                <span class="fic-tag">Effortless Scaling</span>
+              </div>
+            </div>
+
+            <div class="feature-item-card owner-style">
+              <div class="fic-icon">🎁</div>
+              <div class="fic-content">
+                <h4>Student Retention & Awards System</h4>
+                <p>Award study milestone certificates and discipline badges to top students, building unmatched brand loyalty and word-of-mouth admissions.</p>
+                <span class="fic-tag">Negative Churn Moat</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Competitor Insights & Study Leaderboard Section -->
+  <section class="section">
+    <div class="container">
+      <div class="insights-leaderboard-grid">
+        <div>
+          <div class="section-tag">
+            <span class="badge badge-amber">🏆 Peer Motivation Engine</span>
+          </div>
+          <h2 class="section-title">Competitor Insights & City-Wide Rankings</h2>
+          <p class="section-desc" style="margin-bottom:1.5rem;">
+            When aspirants study in dark isolation, motivation drops. Jodo introduces <strong>transparent benchmarking</strong>: see how many candidates are preparing for your target exam and where your daily study hours rank across Patna and Bihar.
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            <div style="display:flex; align-items:flex-start; gap:0.75rem;">
+              <div style="background:rgba(245, 158, 11, 0.15); color:#f59e0b; padding:8px; border-radius:8px; font-weight:700;">📈</div>
+              <div>
+                <strong style="color:#fff;">Exam-Specific Peer Density:</strong>
+                <p style="font-size:0.88rem; color:var(--text-muted);">Know exactly how many students in your branch and zone are appearing for 71st BPSC, SSC CGL, or UPSC CSE.</p>
+              </div>
+            </div>
+
+            <div style="display:flex; align-items:flex-start; gap:0.75rem;">
+              <div style="background:rgba(0, 168, 107, 0.15); color:#10b981; padding:8px; border-radius:8px; font-weight:700;">⏱️</div>
+              <div>
+                <strong style="color:#fff;">Verified In-Seat Study Tracking:</strong>
+                <p style="font-size:0.88rem; color:var(--text-muted);">QR In/Out tracking guarantees real hours spent in the reading room—no fake timers or manual guesswork.</p>
+              </div>
+            </div>
+
+            <div style="display:flex; align-items:flex-start; gap:0.75rem;">
+              <div style="background:rgba(29, 95, 230, 0.15); color:#3b82f6; padding:8px; border-radius:8px; font-weight:700;">🏅</div>
+              <div>
+                <strong style="color:#fff;">Weekly Study Streak Badges:</strong>
+                <p style="font-size:0.88rem; color:var(--text-muted);">Maintain 8+ hours a day to climb the leaderboard, win library fee waivers, and earn 'Aspirant Coins'.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leaderboard Widget -->
+        <div class="leaderboard-widget">
+          <div class="lb-header">
+            <div>
+              <div class="lb-title">Patna Aspirants Leaderboard</div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">Updated live based on QR study hours</div>
+            </div>
+            <div>
+              <select class="exam-filter-select" id="exam-leaderboard-filter">
+                <option value="BPSC">Target: BPSC 71st CCE</option>
+                <option value="UPSC">Target: UPSC CSE 2026</option>
+                <option value="SSC">Target: SSC CGL 2026</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="lb-list" id="leaderboard-dynamic-rows">
+            <!-- Populated via assets/js/main.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEDICATED VC & INVESTOR THESIS SECTION -->
+  <section class="section vc-section" id="vc-investment-thesis">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="badge badge-teal">💼 The Investment Thesis</span>
+        </div>
+        <h2 class="section-title">Why Venture Capitalists Must Back Jodo</h2>
+        <p class="section-desc">
+          Building the digital backbone for India's ₹4,800 Cr unorganized study library industry—starting with Bihar, the nation's premier talent incubator.
+        </p>
+      </div>
+
+      <!-- 3 Pillar VC Cards -->
+      <div class="vc-card-grid">
+        <!-- Card 1: TAM & Spatial Crisis -->
+        <div class="vc-card">
+          <div class="vc-pill">1. The Macro Demand Catalyst</div>
+          <h4>The Severe Spatial Crisis in Coaching Hubs</h4>
+          <p>
+            Competitive exam aspirants spend 2 to 5 years preparing. In coaching hubs like Musallahpur Haat, Bhikhana Pahari, and Boring Road, students live in 5x10 ft rooms shared by 4 roommates. Studying in their rooms is physically impossible due to noise, lack of AC, and power outages.
+          </p>
+          <div class="vc-data-points">
+            <div class="data-row"><span class="key">Bihar Population:</span><span class="val">12.49 Crore</span></div>
+            <div class="data-row"><span class="key">70th BPSC Applicants:</span><span class="val">4.80+ Lakh Candidates</span></div>
+            <div class="data-row"><span class="key">Railway Recruitment TAM:</span><span class="val">2.7 Crore Applicants</span></div>
+            <div class="data-row"><span class="key">Customer Lifetime Value:</span><span class="val">24–48 Months Retention</span></div>
+          </div>
+        </div>
+
+        <!-- Card 2: B2B Lock-In Strategy -->
+        <div class="vc-card">
+          <div class="vc-pill">2. The Supply-Side Moat</div>
+          <h4>Zero-CAC Inventory Acquisition via Free LMS</h4>
+          <p>
+            Legacy software providers charge steep monthly subscription fees (₹149 - ₹649/month), creating high adoption barriers. Jodo delivers a <strong>100% Free Lifetime B2B LMS</strong>. This eliminates owner sales resistance, digitizes real-time inventory, and secures complete supply lock-in without inventory risk.
+          </p>
+          <div class="vc-data-points">
+            <div class="data-row"><span class="key">Supply Acquisition Cost:</span><span class="val">Near ₹0 CAC (Free SaaS)</span></div>
+            <div class="data-row"><span class="key">Marginal Cost per Seat:</span><span class="val">₹0 for Library Owners</span></div>
+            <div class="data-row"><span class="key">Disintermediation Barrier:</span><span class="val">IoT QR Gate Access</span></div>
+            <div class="data-row"><span class="key">Inventory Exclusivity:</span><span class="val">Live Seat Map API</span></div>
+          </div>
+        </div>
+
+        <!-- Card 3: Monetization & Flywheel -->
+        <div class="vc-card">
+          <div class="vc-pill">3. High Unit Economics</div>
+          <h4>Multi-Stream Monetization & Flywheel</h4>
+          <p>
+            Jodo monetizes via a 10-15% B2C take rate on filled seats, dynamic micro-rentals (70-30 split on empty afternoon/night shifts), premium B2B SaaS upgrades, captive EdTech affiliate deals (15-30% on course & test series sales), and hyperlocal student living ads (PGs & Mess).
+          </p>
+          <div class="vc-data-points">
+            <div class="data-row"><span class="key">Marketplace Commission:</span><span class="val">10% – 15% Take Rate</span></div>
+            <div class="data-row"><span class="key">Micro-Renting Split:</span><span class="val">70% Owner / 30% Jodo</span></div>
+            <div class="data-row"><span class="key">B2B Hardware / SaaS ARR:</span><span class="val">₹2,000–₹5,000/mo IoT tier</span></div>
+            <div class="data-row"><span class="key">Captive EdTech Affiliate:</span><span class="val">15%–30% Course Revenue</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unit Economics & Founder Section -->
+      <div class="vc-deep-dive">
+        <div class="deep-dive-left">
+          <h3>Unit Economics & Revenue Streams Matrix</h3>
+          <p style="color:var(--text-muted); font-size:0.92rem;">
+            A low-capital, asset-light model scaling from Tier-2/3 student clusters to Pan-India university towns.
+          </p>
+
+          <table class="revenue-stream-table">
+            <thead>
+              <tr>
+                <th>Stream</th>
+                <th>Target Customer</th>
+                <th>Revenue Structure</th>
+                <th>Margin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>B2C Seat Booking</strong></td>
+                <td>Exam Aspirants</td>
+                <td>10–15% commission on monthly bookings</td>
+                <td>~85% Gross Margin</td>
+              </tr>
+              <tr>
+                <td><strong>Micro-Renting / Hourly</strong></td>
+                <td>WFH & Part-timers</td>
+                <td>70-30 split on off-peak vacant hours</td>
+                <td>~90% Gross Margin</td>
+              </tr>
+              <tr>
+                <td><strong>Smart IoT Unmanned SaaS</strong></td>
+                <td>Multi-Branch Owners</td>
+                <td>₹2,000 – ₹5,000/mo subscription + hardware fee</td>
+                <td>~80% SaaS Margin</td>
+              </tr>
+              <tr>
+                <td><strong>Captive EdTech Sales</strong></td>
+                <td>Major Test Prep & EdTech Platforms</td>
+                <td>15–30% affiliate revenue on Wi-Fi portal</td>
+                <td>~95% Margin</td>
+              </tr>
+              <tr>
+                <td><strong>Living Essentials Directory</strong></td>
+                <td>PGs, Mess & Bookstores</td>
+                <td>Featured listings & lead generation fees</td>
+                <td>~90% Margin</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="deep-dive-right">
+          <div>
+            <span class="badge badge-teal">🚀 Go-To-Market 3-Phase Plan</span>
+            <div style="margin-top:1rem; display:flex; flex-direction:column; gap:0.75rem; font-size:0.88rem;">
+              <div>
+                <strong style="color:#fff;">Phase 1 (Months 1–3):</strong> Ground distribution of 100% Free LMS in Boring Road & Musallahpur Haat to lock in seat supply.
+              </div>
+              <div>
+                <strong style="color:#fff;">Phase 2 (Months 4–6):</strong> Hyper-local consumer app launch with a '2-Day Free Trial' driving student migration to Jodo.
+              </div>
+              <div>
+                <strong style="color:#fff;">Phase 3 (Months 7–12):</strong> Roll out IoT smart turnstiles, launch bundled Tiffin + PG bookings, and expand to Kota & Prayagraj.
+              </div>
+            </div>
+          </div>
+
+          <div class="founder-box">
+            <div class="founder-avatar">VK</div>
+            <div class="founder-details">
+              <h5>Vikash Kumar, Founder</h5>
+              <p>Founder & Architect, Jodo Club & Jodo Library</p>
+              <p style="color:#38bdf8;">contact@jodoclub.com • www.jodoclub.com</p>
+            </div>
+          </div>
+
+          <button class="btn btn-teal" style="width:100%; margin-top:1.25rem;" data-open-modal="vc-deck">
+            Request Full Pitch Deck & Financial Model
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section section-darker">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="badge badge-blue">❓ Frequently Asked Questions</span>
+        </div>
+        <h2 class="section-title">Common Questions Answered</h2>
+        <p class="section-desc">Everything you need to know about joining, booking, and partnering with Jodo.</p>
+      </div>
+
+      <div class="faq-grid">
+        <details class="faq-card" open>
+          <summary>What is Jodo Library?</summary>
+          <p>
+            Jodo Library (by Jodo Club) is a tech-enabled aggregator and IoT SaaS platform that connects competitive exam aspirants with verified, silent study spaces. Students can book exact seats like movie tickets, and library owners get automated management software to eliminate paper registers.
+          </p>
+        </details>
+
+        <details class="faq-card">
+          <summary>How does the "Sell Seat on Absent" feature work?</summary>
+          <p>
+            If you have a monthly subscription and need to travel home for 5-10 days for an exam or festival, you can mark your seat as "vacant" in the app. Jodo makes that slot available for hourly micro-renters or temporary students, and you earn cashback directly to your wallet!
+          </p>
+        </details>
+
+        <details class="faq-card">
+          <summary>How do Attendance-Based Discounts work?</summary>
+          <p>
+            Whenever you enter the study space, scan your app QR code at the desk or gate. When you maintain high attendance (e.g. 20+ days a month), your next monthly renewal gets an automated discipline discount of up to 25%.
+          </p>
+        </details>
+
+        <details class="faq-card">
+          <summary>Why is the B2B LMS 100% Free for Library Owners?</summary>
+          <p>
+            Traditional software charges owners monthly fees. Jodo provides free lifetime software to eliminate friction, digitize seat inventory in real-time, and help owners fill empty seats through our consumer marketplace.
+          </p>
+        </details>
+
+        <details class="faq-card">
+          <summary>Can I book a seat just for 2-3 hours instead of a full month?</summary>
+          <p>
+            Yes! Through our Micro-Renting feature, freelancers, university students, and professionals can walk into any partner library, scan the desk QR code, and pay by the hour.
+          </p>
+        </details>
+
+        <details class="faq-card">
+          <summary>How can investors connect with the founding team?</summary>
+          <p>
+            VCs, angel investors, and ecosystem partners can reach out directly to Vikash Kumar, Founder at <strong>contact@jodoclub.com</strong> or click the "Request Pitch Deck" button on this page.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="cta-banner-content">
+          <div class="badge badge-teal" style="margin-bottom:1rem;">🚀 Join the Study Revolution</div>
+          <h2 class="cta-title">Ready to Claim Your Quiet Study Sanctuary?</h2>
+          <p class="cta-desc">
+            Whether you are an aspirant aiming to crack BPSC or UPSC, or a library owner wanting to 10x your occupancy—Jodo is built for your success.
+          </p>
+          <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+            <button class="btn btn-primary btn-lg" data-open-modal="early-access">Book Your Seat Now</button>
+            <button class="btn btn-secondary btn-lg" data-open-modal="owner-lms">Get Free Owner Software</button>
+            <button class="btn btn-teal btn-lg" data-open-modal="vc-deck">Contact Founder (VCs)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo-wrap">
+            <img src="assets/jodo-logo.jpg" alt="Jodo Club" class="brand-logo-img">
+            <div class="brand-text">
+              <div class="brand-title"><span class="blue">Jodo</span> <span class="green">Club</span></div>
+              <div class="brand-tagline">Jodo Library Ecosystem</div>
+            </div>
+          </div>
+          <p>
+            "Connecting Aspirants to Quiet Spaces." Empowering millions of students with disciplined study environments and smart IoT automation.
+          </p>
+          <div style="margin-top:1rem; font-size:0.85rem; color:var(--text-dim);">
+            Patna • Kota • Prayagraj • Delhi NCR
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>For Aspirants</h5>
+          <ul class="footer-links">
+            <li><a href="#interactive-demo-section">Live Seat Booking</a></li>
+            <li><a href="#student-features">Sell Seat on Absent</a></li>
+            <li><a href="#student-features">Discipline Discounts</a></li>
+            <li><a href="#student-features">Leaderboards & Insights</a></li>
+            <li><a href="#student-features">Cheapest PGs & Mess</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>For Library Owners</h5>
+          <ul class="footer-links">
+            <li><a href="#owner-features">Free B2B SaaS LMS</a></li>
+            <li><a href="#owner-features">Automated WhatsApp Dues</a></li>
+            <li><a href="#owner-features">Smart IoT Turnstile Access</a></li>
+            <li><a href="#owner-features">Off-Peak Seat Maximizer</a></li>
+            <li><a href="#owner-features">Multi-Branch Control</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Investors & Company</h5>
+          <ul class="footer-links">
+            <li><a href="#vc-investment-thesis">Investment Thesis</a></li>
+            <li><a href="#vc-investment-thesis">Market TAM & Unit Economics</a></li>
+            <li><a href="#" data-open-modal="vc-deck">Request Pitch Deck</a></li>
+            <li><a href="mailto:contact@jodoclub.com">contact@jodoclub.com</a></li>
+            <li><a href="http://www.jodoclub.com" target="_blank" rel="noopener">www.jodoclub.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Jodo Club & Jodo Library. All rights reserved. Designed for Aspirants & Space Innovators.</div>
+        <div>Founder: Vikash Kumar | Connecting Aspirants to Quiet Spaces</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal 1: Student Early Access / Seat Booking -->
+  <dialog id="early-access-modal" class="modern-modal">
+    <div class="modal-header">
+      <h3>Book a Study Seat / Get Early Access</h3>
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+    </div>
+    <form data-ajax-form>
+      <div class="form-group">
+        <label for="student-name">Full Name</label>
+        <input type="text" id="student-name" class="form-input" placeholder="e.g. Aman Kumar" required>
+      </div>
+      <div class="form-group">
+        <label for="student-phone">WhatsApp Number</label>
+        <input type="tel" id="student-phone" class="form-input" placeholder="+91 9876543210" required>
+      </div>
+      <div class="form-group">
+        <label for="student-exam">Target Exam</label>
+        <select id="student-exam" class="form-select" required>
+          <option value="BPSC">BPSC 71st CCE</option>
+          <option value="UPSC">UPSC Civil Services</option>
+          <option value="SSC">SSC CGL / CHSL</option>
+          <option value="Railways">Indian Railways (RRB NTPC)</option>
+          <option value="NEET_JEE">NEET / IIT-JEE</option>
+          <option value="WFH">WFH Corporate / Freelance</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="student-location">Preferred Area in Patna / City</label>
+        <input type="text" id="student-location" class="form-input" placeholder="e.g. Boring Road / Musallahpur Haat / Kankarbagh" required>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.75rem;">Get Priority Seat Access</button>
+    </form>
+  </dialog>
+
+  <!-- Modal 2: VC & Investor Pitch Request -->
+  <dialog id="vc-modal" class="modern-modal">
+    <div class="modal-header">
+      <h3>Request VC Pitch Deck & Data Room</h3>
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+    </div>
+    <form data-ajax-form>
+      <div class="form-group">
+        <label for="investor-name">Your Name</label>
+        <input type="text" id="investor-name" class="form-input" placeholder="e.g. Rajesh Sharma" required>
+      </div>
+      <div class="form-group">
+        <label for="investor-fund">Fund / Angel Network</label>
+        <input type="text" id="investor-fund" class="form-input" placeholder="e.g. Peak XV / Angel Syndicate / Family Office" required>
+      </div>
+      <div class="form-group">
+        <label for="investor-email">Work Email</label>
+        <input type="email" id="investor-email" class="form-input" placeholder="rajesh@fund.com" required>
+      </div>
+      <div class="form-group">
+        <label for="investor-note">Message / Specific Interest</label>
+        <input type="text" id="investor-note" class="form-input" placeholder="Interested in Seed Round details & TAM metrics">
+      </div>
+      <button type="submit" class="btn btn-teal" style="width:100%; margin-top:0.75rem;">Request Confidential Deck</button>
+    </form>
+  </dialog>
+
+  <!-- Modal 3: Library Owner Partnership -->
+  <dialog id="owner-modal" class="modern-modal">
+    <div class="modal-header">
+      <h3>List Your Library & Get Free LMS</h3>
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+    </div>
+    <form data-ajax-form>
+      <div class="form-group">
+        <label for="owner-name">Owner / Manager Name</label>
+        <input type="text" id="owner-name" class="form-input" placeholder="e.g. Sunil Kumar" required>
+      </div>
+      <div class="form-group">
+        <label for="library-name">Library Name</label>
+        <input type="text" id="library-name" class="form-input" placeholder="e.g. Chanakya Study Point" required>
+      </div>
+      <div class="form-group">
+        <label for="owner-phone">Mobile / WhatsApp Number</label>
+        <input type="tel" id="owner-phone" class="form-input" placeholder="+91 9876543210" required>
+      </div>
+      <div class="form-group">
+        <label for="total-seats">Total Number of Seats</label>
+        <input type="number" id="total-seats" class="form-input" placeholder="e.g. 60" required>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.75rem;">Activate 100% Free Lifetime SaaS</button>
+    </form>
+  </dialog>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
