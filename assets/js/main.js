@@ -1,311 +1,350 @@
-// Jodo Club & Jodo Library Interactive Application Logic
+// JodoClub: The AI-Powered Operating System for Modern Libraries & Study Hubs
 document.addEventListener('DOMContentLoaded', () => {
-  initPersonaSwitcher();
-  initSeatMapDemo();
-  initLeaderboardFilter();
+  initHeroSplitMockup();
+  initStudentSeatSimulator();
+  initOwnerBranchDashboard();
+  initDevApiTabs();
+  initWhatsAppAiSimulator();
   initModals();
   initSmoothScroll();
 });
 
 /* -------------------------------------------------------------
-   1. Persona View Switcher
+   1. HERO SPLIT UI: Real-Time Seat Matrix + AI Study Copilot
 ------------------------------------------------------------- */
-function initPersonaSwitcher() {
-  const personaButtons = document.querySelectorAll('.persona-btn');
-  const studentSection = document.getElementById('student-features');
-  const ownerSection = document.getElementById('owner-features');
-  const vcSection = document.getElementById('vc-investment-thesis');
+function initHeroSplitMockup() {
+  const seatGridEl = document.getElementById('hero-live-seat-grid');
+  const shiftBtns = document.querySelectorAll('.hero-shift-btn');
+  const aiSeatOutput = document.getElementById('hero-ai-seat-target');
+  const aiPredictedScore = document.getElementById('hero-ai-score');
+  const aiStreakEl = document.getElementById('hero-ai-streak');
+  const aiMsgContent = document.getElementById('hero-ai-msg-text');
+  const occupancyStatEl = document.getElementById('hero-occupancy-stat');
 
-  personaButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      personaButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  if (!seatGridEl) return;
 
-      const targetPersona = btn.getAttribute('data-persona');
-
-      if (targetPersona === 'all') {
-        if (studentSection) studentSection.style.display = 'block';
-        if (ownerSection) ownerSection.style.display = 'block';
-        if (vcSection) vcSection.style.display = 'block';
-      } else if (targetPersona === 'student') {
-        if (studentSection) {
-          studentSection.style.display = 'block';
-          studentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      } else if (targetPersona === 'owner') {
-        if (ownerSection) {
-          ownerSection.style.display = 'block';
-          ownerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      } else if (targetPersona === 'vc') {
-        if (vcSection) {
-          vcSection.style.display = 'block';
-          vcSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    });
-  });
-}
-
-/* -------------------------------------------------------------
-   2. Interactive Movie-Style Seat Map Simulator
-------------------------------------------------------------- */
-function initSeatMapDemo() {
-  const seatsGrid = document.getElementById('interactive-seats-grid');
-  const shiftChips = document.querySelectorAll('.shift-chip');
-  const selectedSeatNameEl = document.getElementById('summary-seat-name');
-  const selectedShiftNameEl = document.getElementById('summary-shift-name');
-  const basePriceEl = document.getElementById('summary-base-price');
-  const discountValEl = document.getElementById('summary-discount-val');
-  const totalPriceEl = document.getElementById('summary-total-price');
-  const attendanceSlider = document.getElementById('attendance-slider');
-  const attendanceDaysEl = document.getElementById('attendance-days-val');
-  const attendanceDiscountPill = document.getElementById('attendance-discount-pct');
-  const resellCalcBtn = document.getElementById('btn-simulate-resale');
-  const resaleResultBox = document.getElementById('resale-result-box');
-
-  if (!seatsGrid) return;
-
-  // Define 24 sample seats with realistic attributes
-  const seatData = [
-    { id: 'A1', type: 'Corner Quiet', baseMultiplier: 1.05, status: 'occupied' },
-    { id: 'A2', type: 'Near AC Vent', baseMultiplier: 1.1, status: 'available' },
-    { id: 'A3', type: 'Charging Point', baseMultiplier: 1.0, status: 'available' },
-    { id: 'A4', type: 'Window View', baseMultiplier: 1.15, status: 'available' },
-    { id: 'A5', type: 'Charging Point', baseMultiplier: 1.0, status: 'occupied' },
-    { id: 'A6', type: 'Corner Quiet', baseMultiplier: 1.05, status: 'available' },
-
-    { id: 'B1', type: 'Silent Pod', baseMultiplier: 1.1, status: 'available' },
-    { id: 'B2', type: 'Standard', baseMultiplier: 1.0, status: 'occupied' },
-    { id: 'B3', type: 'Charging Point', baseMultiplier: 1.0, status: 'available' },
-    { id: 'B4', type: 'Near AC Vent', baseMultiplier: 1.1, status: 'available' },
-    { id: 'B5', type: 'Standard', baseMultiplier: 1.0, status: 'available' },
-    { id: 'B6', type: 'Window View', baseMultiplier: 1.15, status: 'available' },
-
-    { id: 'C1', type: 'Corner Quiet', baseMultiplier: 1.05, status: 'available' },
-    { id: 'C2', type: 'Charging Point', baseMultiplier: 1.0, status: 'available' },
-    { id: 'C3', type: 'Silent Pod', baseMultiplier: 1.15, status: 'available' },
-    { id: 'C4', type: 'Standard', baseMultiplier: 1.0, status: 'occupied' },
-    { id: 'C5', type: 'Near AC Vent', baseMultiplier: 1.1, status: 'available' },
-    { id: 'C6', type: 'Charging Point', baseMultiplier: 1.0, status: 'available' },
-
-    { id: 'D1', type: 'Window View', baseMultiplier: 1.15, status: 'available' },
-    { id: 'D2', type: 'Standard', baseMultiplier: 1.0, status: 'available' },
-    { id: 'D3', type: 'Charging Point', baseMultiplier: 1.0, status: 'occupied' },
-    { id: 'D4', type: 'Near AC Vent', baseMultiplier: 1.1, status: 'available' },
-    { id: 'D5', type: 'Silent Pod', baseMultiplier: 1.15, status: 'available' },
-    { id: 'D6', type: 'Corner Quiet', baseMultiplier: 1.05, status: 'available' }
-  ];
-
-  // Shift pricing rates (Patna average benchmark ₹500 - ₹1200)
-  const shiftRates = {
-    'morning': { name: 'Morning (6 AM - 12 PM)', price: 600 },
-    'afternoon': { name: 'Afternoon (12 PM - 6 PM)', price: 550 },
-    'evening': { name: 'Evening (6 PM - 11 PM)', price: 650 },
-    'night': { name: 'Night Owl (11 PM - 6 AM)', price: 500 },
-    'fullday': { name: 'Full-Day 24x7 Unlimited', price: 1100 }
-  };
-
-  let currentShift = 'morning';
-  let selectedSeat = seatData.find(s => s.id === 'A4'); // Default select Window Seat A4
-
-  // Render seats
-  function renderSeats() {
-    seatsGrid.innerHTML = '';
-    seatData.forEach(seat => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = `seat-button ${seat.status}`;
-      if (selectedSeat && selectedSeat.id === seat.id) {
-        btn.classList.add('selected');
-      }
-
-      btn.innerHTML = `
-        <span>${seat.id}</span>
-        <span class="seat-sub">${seat.type.split(' ')[0]}</span>
-      `;
-
-      if (seat.status !== 'occupied') {
-        btn.addEventListener('click', () => {
-          selectedSeat = seat;
-          updateCheckout();
-          renderSeats();
-        });
-      }
-
-      seatsGrid.appendChild(btn);
-    });
-  }
-
-  // Update calculation
-  function updateCheckout() {
-    if (!selectedSeat) return;
-
-    const shiftInfo = shiftRates[currentShift];
-    const base = Math.round(shiftInfo.price * selectedSeat.baseMultiplier);
-    
-    // Attendance discount calculation:
-    // Slider: 0 to 30 days.
-    // If attended >= 20 days, get up to 20% discount. 25+ days = 25% discount.
-    const daysAttended = parseInt(attendanceSlider.value, 10);
-    let discountPct = 0;
-    if (daysAttended >= 25) discountPct = 25;
-    else if (daysAttended >= 20) discountPct = 18;
-    else if (daysAttended >= 15) discountPct = 10;
-    else if (daysAttended >= 10) discountPct = 5;
-
-    const discountAmount = Math.round((base * discountPct) / 100);
-    const finalTotal = base - discountAmount;
-
-    // DOM update
-    selectedSeatNameEl.textContent = `Seat ${selectedSeat.id} (${selectedSeat.type})`;
-    selectedShiftNameEl.textContent = shiftInfo.name;
-    basePriceEl.textContent = `₹${base}`;
-    discountValEl.textContent = `-₹${discountAmount} (${discountPct}%)`;
-    totalPriceEl.textContent = `₹${finalTotal}/mo`;
-
-    attendanceDaysEl.textContent = `${daysAttended} Days`;
-    attendanceDiscountPill.textContent = `${discountPct}% Discount Applied`;
-  }
-
-  // Handle Shift Selection
-  shiftChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      shiftChips.forEach(c => c.classList.remove('selected'));
-      chip.classList.add('selected');
-      currentShift = chip.getAttribute('data-shift');
-      updateCheckout();
-    });
-  });
-
-  // Handle Attendance Slider
-  if (attendanceSlider) {
-    attendanceSlider.addEventListener('input', () => {
-      updateCheckout();
-    });
-  }
-
-  // Handle Sell My Seat Resale Simulation
-  if (resellCalcBtn && resaleResultBox) {
-    resellCalcBtn.addEventListener('click', () => {
-      const daysGone = 6; // Exam travel or home visit
-      const perDayRate = Math.round(shiftRates[currentShift].price / 30);
-      const earnings = Math.round(daysGone * perDayRate * 0.85); // 85% returned to student
-
-      resaleResultBox.style.display = 'block';
-      resaleResultBox.innerHTML = `
-        <div style="font-weight: 700; color: #10b981; margin-bottom: 4px;">🎉 Seat Listed for Re-rental!</div>
-        <div>Agar aap <strong>6 din</strong> exam travel ke liye ghar jaate hain, aapki vacant seat automatically book hokar aapko <strong>₹${earnings} cashback</strong> degi! Paisa waste nahi hoga!</div>
-      `;
-    });
-  }
-
-  // Initial render
-  renderSeats();
-  updateCheckout();
-}
-
-/* -------------------------------------------------------------
-   3. Competitor Insights & Leaderboard
-------------------------------------------------------------- */
-function initLeaderboardFilter() {
-  const examFilter = document.getElementById('exam-leaderboard-filter');
-  const lbContainer = document.getElementById('leaderboard-dynamic-rows');
-
-  if (!examFilter || !lbContainer) return;
-
-  const mockLeaderboards = {
-    'BPSC': [
-      { rank: 1, name: 'Aman Kumar', badge: 'gold', exam: 'BPSC 71st CCE', library: 'Patliputra Study Hub, Boring Rd', hours: '11.4 hrs/day', streak: '🔥 48 Day Streak' },
-      { rank: 2, name: 'Priya Kumari', badge: 'silver', exam: 'BPSC 71st CCE', library: 'Sankalp Library, Kankarbagh', hours: '10.8 hrs/day', streak: '🔥 39 Day Streak' },
-      { rank: 3, name: 'Rohit Raj', badge: 'bronze', exam: 'BPSC 71st CCE', library: 'Vision Point, Musallahpur', hours: '10.2 hrs/day', streak: '🔥 31 Day Streak' },
-      { rank: 14, name: 'Aap (Your Rank)', badge: 'user', exam: 'BPSC 71st CCE', library: 'Jodo Verified Study Space', hours: '8.5 hrs/day', streak: '🔥 14 Day Streak' }
+  const mockShiftSeats = {
+    'morning': [
+      { id: 'S1', type: 'Quiet Corner', status: 'selected', aiRecommended: true },
+      { id: 'S2', type: 'AC Vent', status: 'occupied' },
+      { id: 'S3', type: 'Power Desk', status: 'available' },
+      { id: 'S4', type: 'Window Pod', status: 'available' },
+      { id: 'S5', type: 'Quiet Corner', status: 'occupied' },
+      { id: 'S6', type: 'Power Desk', status: 'available' },
+      { id: 'S7', type: 'Window Pod', status: 'vacant-resale' },
+      { id: 'S8', type: 'AC Vent', status: 'available' },
+      { id: 'S9', type: 'Power Desk', status: 'occupied' },
+      { id: 'S10', type: 'Quiet Corner', status: 'available' },
+      { id: 'S11', type: 'Standard', status: 'occupied' },
+      { id: 'S12', type: 'Window Pod', status: 'available' }
     ],
-    'UPSC': [
-      { rank: 1, name: 'Shubham Verma', badge: 'gold', exam: 'UPSC CSE 2026', library: 'Chanakya Reading Room, Boring Rd', hours: '12.1 hrs/day', streak: '🔥 62 Day Streak' },
-      { rank: 2, name: 'Sneha Singh', badge: 'silver', exam: 'UPSC CSE 2026', library: 'Quiet Zone, Bailey Road', hours: '11.5 hrs/day', streak: '🔥 45 Day Streak' },
-      { rank: 3, name: 'Aditya Raj', badge: 'bronze', exam: 'UPSC CSE 2026', library: 'IAS Aspirants Pod, Kankarbagh', hours: '10.9 hrs/day', streak: '🔥 28 Day Streak' },
-      { rank: 8, name: 'Aap (Your Rank)', badge: 'user', exam: 'UPSC CSE 2026', library: 'Jodo Verified Study Space', hours: '9.2 hrs/day', streak: '🔥 19 Day Streak' }
+    'evening': [
+      { id: 'S1', type: 'Quiet Corner', status: 'occupied' },
+      { id: 'S2', type: 'AC Vent', status: 'occupied' },
+      { id: 'S3', type: 'Power Desk', status: 'available' },
+      { id: 'S4', type: 'Window Pod', status: 'selected', aiRecommended: true },
+      { id: 'S5', type: 'Quiet Corner', status: 'vacant-resale' },
+      { id: 'S6', type: 'Power Desk', status: 'available' },
+      { id: 'S7', type: 'Window Pod', status: 'occupied' },
+      { id: 'S8', type: 'AC Vent', status: 'available' },
+      { id: 'S9', type: 'Power Desk', status: 'occupied' },
+      { id: 'S10', type: 'Quiet Corner', status: 'occupied' },
+      { id: 'S11', type: 'Standard', status: 'available' },
+      { id: 'S12', type: 'Window Pod', status: 'available' }
     ],
-    'SSC': [
-      { rank: 1, name: 'Vikram Paswan', badge: 'gold', exam: 'SSC CGL 2026', library: 'Pragya Library, Musallahpur Haat', hours: '11.8 hrs/day', streak: '🔥 54 Day Streak' },
-      { rank: 2, name: 'Ravi Teja', badge: 'silver', exam: 'SSC CGL 2026', library: 'Target Point, Bhikhana Pahari', hours: '11.0 hrs/day', streak: '🔥 42 Day Streak' },
-      { rank: 3, name: 'Alok Ranjan', badge: 'bronze', exam: 'SSC CGL 2026', library: 'Success Hub, Bazar Samiti', hours: '10.4 hrs/day', streak: '🔥 36 Day Streak' },
-      { rank: 19, name: 'Aap (Your Rank)', badge: 'user', exam: 'SSC CGL 2026', library: 'Jodo Verified Study Space', hours: '8.1 hrs/day', streak: '🔥 11 Day Streak' }
+    'night': [
+      { id: 'S1', type: 'Quiet Corner', status: 'available' },
+      { id: 'S2', type: 'AC Vent', status: 'available' },
+      { id: 'S3', type: 'Power Desk', status: 'selected', aiRecommended: true },
+      { id: 'S4', type: 'Window Pod', status: 'available' },
+      { id: 'S5', type: 'Quiet Corner', status: 'available' },
+      { id: 'S6', type: 'Power Desk', status: 'occupied' },
+      { id: 'S7', type: 'Window Pod', status: 'available' },
+      { id: 'S8', type: 'AC Vent', status: 'available' },
+      { id: 'S9', type: 'Power Desk', status: 'available' },
+      { id: 'S10', type: 'Quiet Corner', status: 'available' },
+      { id: 'S11', type: 'Standard', status: 'available' },
+      { id: 'S12', type: 'Window Pod', status: 'vacant-resale' }
     ]
   };
 
-  function renderLeaderboard(examKey) {
-    const list = mockLeaderboards[examKey] || mockLeaderboards['BPSC'];
-    lbContainer.innerHTML = '';
+  let activeShift = 'morning';
 
-    list.forEach(item => {
-      const row = document.createElement('div');
-      row.className = `lb-row ${item.badge === 'user' ? 'highlight-user' : ''}`;
+  function renderHeroSeats() {
+    seatGridEl.innerHTML = '';
+    const currentSeats = mockShiftSeats[activeShift];
 
-      let badgeHtml = '';
-      if (item.badge === 'gold') badgeHtml = `<div class="rank-badge gold">1</div>`;
-      else if (item.badge === 'silver') badgeHtml = `<div class="rank-badge silver">2</div>`;
-      else if (item.badge === 'bronze') badgeHtml = `<div class="rank-badge bronze">3</div>`;
-      else badgeHtml = `<div class="rank-badge" style="background:#2563eb; color:#fff;">${item.rank}</div>`;
+    let occupiedCount = 0;
+    currentSeats.forEach(seat => {
+      if (seat.status === 'occupied') occupiedCount++;
 
-      row.innerHTML = `
-        <div class="lb-left">
-          ${badgeHtml}
-          <div class="lb-avatar">${item.name.charAt(0)}</div>
-          <div class="lb-info">
-            <div class="lb-name">${item.name}</div>
-            <div class="lb-sub">${item.library} • ${item.exam}</div>
-          </div>
-        </div>
-        <div class="lb-right">
-          <div class="lb-hours">${item.hours}</div>
-          <div class="lb-streak">${item.streak}</div>
-        </div>
+      const cell = document.createElement('div');
+      cell.className = `hero-seat-cell ${seat.status}`;
+      cell.innerHTML = `
+        <span>${seat.id}</span>
+        <span class="sub">${seat.type.split(' ')[0]}</span>
       `;
 
-      lbContainer.appendChild(row);
+      if (seat.status !== 'occupied') {
+        cell.addEventListener('click', () => {
+          currentSeats.forEach(s => {
+            if (s.status === 'selected') s.status = 'available';
+          });
+          seat.status = 'selected';
+          renderHeroSeats();
+          updateHeroAiWidget(seat);
+        });
+      }
+
+      seatGridEl.appendChild(cell);
     });
+
+    const total = currentSeats.length;
+    const occPct = Math.round((occupiedCount / total) * 100);
+    if (occupancyStatEl) {
+      occupancyStatEl.textContent = `${occPct}% Occupancy • ${total - occupiedCount} Seats Open`;
+    }
   }
 
-  examFilter.addEventListener('change', (e) => {
-    renderLeaderboard(e.target.value);
+  function updateHeroAiWidget(seat) {
+    if (aiSeatOutput) aiSeatOutput.textContent = `Assigned: ${seat.id} (${seat.type})`;
+    if (aiPredictedScore) aiPredictedScore.textContent = `${88 + Math.floor(Math.random() * 8)}%`;
+    if (aiStreakEl) aiStreakEl.textContent = `🔥 24-Day Streak`;
+
+    if (aiMsgContent) {
+      if (seat.type.includes('Quiet')) {
+        aiMsgContent.textContent = `Optimal choice. Desk ${seat.id} offers an isolated acoustic profile with 98% silence rating, increasing your focused study duration by ~1.4 hrs.`;
+      } else if (seat.type.includes('Window')) {
+        aiMsgContent.textContent = `Natural lighting on Desk ${seat.id} supports circadian study habits during ${activeShift} shift. Wi-Fi latency benchmark: 14ms.`;
+      } else {
+        aiMsgContent.textContent = `High-power desk ${seat.id} detected with dedicated charging hub and 100% generator power backup.`;
+      }
+    }
+  }
+
+  shiftBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      shiftBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeShift = btn.getAttribute('data-shift');
+      renderHeroSeats();
+      const currentSelected = mockShiftSeats[activeShift].find(s => s.status === 'selected') || mockShiftSeats[activeShift][0];
+      updateHeroAiWidget(currentSelected);
+    });
   });
 
-  renderLeaderboard('BPSC');
+  renderHeroSeats();
+  const initSelected = mockShiftSeats['morning'].find(s => s.status === 'selected');
+  if (initSelected) updateHeroAiWidget(initSelected);
 }
 
 /* -------------------------------------------------------------
-   4. Modals & Dialog Handling (HTML5 <dialog>)
+   2. STUDENT SEAT SIMULATOR & RESALE ENGINE
+------------------------------------------------------------- */
+function initStudentSeatSimulator() {
+  const attendanceSlider = document.getElementById('student-attendance-slider');
+  const daysDisplay = document.getElementById('student-days-display');
+  const discountDisplay = document.getElementById('student-discount-display');
+  const payableFeeDisplay = document.getElementById('student-payable-fee');
+  const resaleBtn = document.getElementById('btn-student-resale-demo');
+  const resaleOutput = document.getElementById('student-resale-feedback');
+
+  if (!attendanceSlider) return;
+
+  const baseMonthlyFee = 850;
+
+  function updateAttendanceDiscount() {
+    const days = parseInt(attendanceSlider.value, 10);
+    let discountPct = 0;
+    if (days >= 26) discountPct = 25;
+    else if (days >= 20) discountPct = 18;
+    else if (days >= 14) discountPct = 10;
+    else if (days >= 8) discountPct = 5;
+
+    const discountAmount = Math.round((baseMonthlyFee * discountPct) / 100);
+    const finalFee = baseMonthlyFee - discountAmount;
+
+    if (daysDisplay) daysDisplay.textContent = `${days} Days / Month`;
+    if (discountDisplay) discountDisplay.textContent = `${discountPct}% Discount (-₹${discountAmount})`;
+    if (payableFeeDisplay) payableFeeDisplay.textContent = `₹${finalFee}/mo`;
+  }
+
+  attendanceSlider.addEventListener('input', updateAttendanceDiscount);
+  updateAttendanceDiscount();
+
+  if (resaleBtn && resaleOutput) {
+    resaleBtn.addEventListener('click', () => {
+      resaleOutput.style.display = 'block';
+      resaleOutput.innerHTML = `
+        <div style="font-weight:700; color:#10b981; margin-bottom:4px;">✨ Vacant Seat Slot Monetized</div>
+        <div>Your 4-day leave has been matched with on-demand micro-renters. <strong>₹240 cashback</strong> credited to your JodoClub wallet!</div>
+      `;
+    });
+  }
+}
+
+/* -------------------------------------------------------------
+   3. OWNER MULTI-BRANCH SaaS CONTROLLER
+------------------------------------------------------------- */
+function initOwnerBranchDashboard() {
+  const branchSelector = document.getElementById('owner-branch-select');
+  const branchOccEl = document.getElementById('branch-occupancy-val');
+  const branchRevEl = document.getElementById('branch-revenue-val');
+  const branchActiveSeatsEl = document.getElementById('branch-active-seats-val');
+
+  if (!branchSelector) return;
+
+  const branchData = {
+    'patna-central': { occ: '94%', rev: '₹1,42,800', seats: '118/125' },
+    'kankarbagh-hub': { occ: '88%', rev: '₹98,400', seats: '88/100' },
+    'boring-road-exec': { occ: '96%', rev: '₹1,84,000', seats: '144/150' },
+    'muzaffarpur-branch': { occ: '82%', rev: '₹65,200', seats: '58/70' }
+  };
+
+  branchSelector.addEventListener('change', (e) => {
+    const val = e.target.value;
+    const data = branchData[val] || branchData['patna-central'];
+    if (branchOccEl) branchOccEl.textContent = data.occ;
+    if (branchRevEl) branchRevEl.textContent = data.rev;
+    if (branchActiveSeatsEl) branchActiveSeatsEl.textContent = data.seats;
+  });
+}
+
+/* -------------------------------------------------------------
+   4. DEVELOPER & AI CLOUD LAYER: CODE TABS
+------------------------------------------------------------- */
+function initDevApiTabs() {
+  const tabBtns = document.querySelectorAll('.code-tab-btn');
+  const codeBody = document.getElementById('dev-code-snippet');
+
+  if (!tabBtns.length || !codeBody) return;
+
+  const codeSnippets = {
+    'curl': `<span class="code-token-comment"># Verify Real-Time Seat Availability via Jodo Study Network API</span>
+<span class="code-token-keyword">curl</span> -X GET <span class="code-token-string">"https://api.jodoclub.com/v1/spaces/patna-central/seats?shift=morning"</span> \\
+  -H <span class="code-token-string">"Authorization: Bearer jodo_live_sec_99a8b7c6d5"</span> \\
+  -H <span class="code-token-string">"Content-Type: application/json"</span>
+
+<span class="code-token-comment"># Response: 200 OK</span>
+{
+  <span class="code-token-string">"spaceId"</span>: <span class="code-token-string">"lib_patna_01"</span>,
+  <span class="code-token-string">"shift"</span>: <span class="code-token-string">"MORNING_06_12"</span>,
+  <span class="code-token-string">"availableSeats"</span>: [<span class="code-token-string">"S1"</span>, <span class="code-token-string">"S3"</span>, <span class="code-token-string">"S4"</span>, <span class="code-token-string">"S6"</span>],
+  <span class="code-token-string">"qrGateAccess"</span>: <span class="code-token-keyword">true</span>,
+  <span class="code-token-string">"iotActiveTurnstiles"</span>: <span class="code-token-num">2</span>
+}`,
+
+    'node': `<span class="code-token-comment">// Node.js SDK: Instant Webhook & Shift Allocation</span>
+<span class="code-token-keyword">import</span> { JodoClubClient } <span class="code-token-keyword">from</span> <span class="code-token-string">'@jodoclub/sdk'</span>;
+
+<span class="code-token-keyword">const</span> jodo = <span class="code-token-keyword">new</span> JodoClubClient({
+  apiKey: process.env.<span class="code-token-string">JODO_SECRET_KEY</span>,
+});
+
+<span class="code-token-keyword">async function</span> bookMemberSeat() {
+  <span class="code-token-keyword">const</span> booking = <span class="code-token-keyword">await</span> jodo.bookings.create({
+    memberId: <span class="code-token-string">'mem_aspirant_882'</span>,
+    shift: <span class="code-token-string">'NIGHT_OWL'</span>,
+    seatPreference: <span class="code-token-string">'QUIET_CORNER'</span>,
+    autoQrPass: <span class="code-token-keyword">true</span>,
+  });
+
+  console.log(<span class="code-token-string">'Pass Generated:'</span>, booking.digitalPassUrl);
+}`,
+
+    'python': `<span class="code-token-comment"># Python SDK: Study Analytics & Autonomous Sync</span>
+<span class="code-token-keyword">from</span> jodoclub <span class="code-token-keyword">import</span> JodoClient
+
+client = JodoClient(api_key=<span class="code-token-string">"jodo_live_sec_99a8b7c6d5"</span>)
+
+<span class="code-token-comment"># Fetch peer rank benchmark for BPSC 71st</span>
+analytics = client.analytics.get_peer_benchmark(
+    exam_id=<span class="code-token-string">"BPSC_71ST"</span>,
+    student_id=<span class="code-token-string">"usr_aman_09"</span>
+)
+
+print(f<span class="code-token-string">"State Rank: {analytics.rank} | Verified Hours: {analytics.study_hours} hrs"</span>)`
+  };
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const lang = btn.getAttribute('data-lang');
+      codeBody.innerHTML = codeSnippets[lang] || codeSnippets['curl'];
+    });
+  });
+}
+
+/* -------------------------------------------------------------
+   5. AUTONOMOUS AI WHATSAPP AGENT SIMULATOR
+------------------------------------------------------------- */
+function initWhatsAppAiSimulator() {
+  const chips = document.querySelectorAll('.quick-chip');
+  const chatContainer = document.getElementById('whatsapp-chat-container');
+
+  if (!chips.length || !chatContainer) return;
+
+  const responses = {
+    'shift': {
+      user: 'Bhaiya mujhe kal ki shift Morning se Night Owl me switch karni hai.',
+      bot: 'Namaste Aman! 🤖 Aapki request Jodo AI ne process kar li hai. Kal ke liye Seat N4 (Night Owl 11 PM - 6 AM) confirm kar di gayi hai. Aapka QR Entry pass auto-update ho chuka hai!'
+    },
+    'discount': {
+      user: 'Mera is month ka attendance discount kitna bana?',
+      bot: 'Aapne is month 24 days QR check-in complete kiya hai! Aapko 20% Automated Attendance Discount unlock ho chuka hai. Renewal fee: ₹850 ki jagah sirf ₹680 lagengi.'
+    },
+    'wifi': {
+      user: 'Cabin 3 me Wi-Fi speed thodi slow aa rahi hai.',
+      bot: 'Ticket #409 generated! Library Manager Sunil ji ko direct alert bhej diya gaya hai aur Secondary Router mesh auto-activate kar diya gaya hai. Expected resolution: 5 mins.'
+    }
+  };
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const type = chip.getAttribute('data-query');
+      const data = responses[type];
+      if (!data) return;
+
+      const userBubble = document.createElement('div');
+      userBubble.className = 'chat-bubble user';
+      userBubble.textContent = data.user;
+      chatContainer.appendChild(userBubble);
+
+      setTimeout(() => {
+        const botBubble = document.createElement('div');
+        botBubble.className = 'chat-bubble bot';
+        botBubble.innerHTML = `<strong>JodoClub AI Agent:</strong><br>${data.bot}`;
+        chatContainer.appendChild(botBubble);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 500);
+
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    });
+  });
+}
+
+/* -------------------------------------------------------------
+   6. MODALS HANDLING (HTML5 <dialog>)
 ------------------------------------------------------------- */
 function initModals() {
-  const earlyAccessModal = document.getElementById('early-access-modal');
-  const vcModal = document.getElementById('vc-modal');
-  const ownerModal = document.getElementById('owner-modal');
+  const portalModal = document.getElementById('portal-modal');
+  const apiModal = document.getElementById('api-modal');
 
-  // Trigger buttons
-  document.querySelectorAll('[data-open-modal="early-access"]').forEach(btn => {
+  document.querySelectorAll('[data-open-modal="portal"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      if (earlyAccessModal) earlyAccessModal.showModal();
+      if (portalModal) portalModal.showModal();
     });
   });
 
-  document.querySelectorAll('[data-open-modal="vc-deck"]').forEach(btn => {
+  document.querySelectorAll('[data-open-modal="api"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      if (vcModal) vcModal.showModal();
+      if (apiModal) apiModal.showModal();
     });
   });
 
-  document.querySelectorAll('[data-open-modal="owner-lms"]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (ownerModal) ownerModal.showModal();
-    });
-  });
-
-  // Close buttons
   document.querySelectorAll('.modal-close-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const modal = btn.closest('dialog');
@@ -313,37 +352,32 @@ function initModals() {
     });
   });
 
-  // Light dismiss by clicking outside modal backdrop
-  [earlyAccessModal, vcModal, ownerModal].forEach(modal => {
+  [portalModal, apiModal].forEach(modal => {
     if (!modal) return;
     modal.addEventListener('click', (e) => {
       const rect = modal.getBoundingClientRect();
-      const isInDialog = (
+      const inDialog = (
         rect.top <= e.clientY &&
         e.clientY <= rect.top + rect.height &&
         rect.left <= e.clientX &&
         e.clientX <= rect.left + rect.width
       );
-      if (!isInDialog) {
-        modal.close();
-      }
+      if (!inDialog) modal.close();
     });
   });
 
-  // Form submit handles
-  const forms = document.querySelectorAll('form[data-ajax-form]');
-  forms.forEach(form => {
+  document.querySelectorAll('form[data-ajax-form]').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const parentModal = form.closest('dialog');
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
-      
-      submitBtn.textContent = 'Submitting...';
+
+      submitBtn.textContent = 'Authenticating...';
       submitBtn.disabled = true;
 
       setTimeout(() => {
-        alert('Dhanyawad! Aapki request successfully submit ho gayi hai. Jodo Team aapse turant connect karegi.');
+        alert('Welcome to JodoClub Cloud! Aapka access request verify ho gaya hai.');
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
         form.reset();
@@ -354,21 +388,17 @@ function initModals() {
 }
 
 /* -------------------------------------------------------------
-   5. Smooth Scroll Navigation
+   7. SMOOTH SCROLL NAVIGATION
 ------------------------------------------------------------- */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
       if (href === '#' || href.startsWith('#!')) return;
-      
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
